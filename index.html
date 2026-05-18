@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EcoNature — Охрана природы</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Montserrat', sans-serif;
+      background:#0f1720;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    /* Фон */
+    .hero{
+      height:100vh;
+      background:
+      linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.55)),
+      url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1920&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:20px;
+      position:relative;
+    }
+
+    nav{
+      position:absolute;
+      top:0;
+      width:100%;
+      padding:25px 60px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      backdrop-filter:blur(8px);
+      background:rgba(0,0,0,0.2);
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      color:#8cff9d;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:white;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:#8cff9d;
+    }
+
+    .hero h1{
+      font-size:72px;
+      max-width:900px;
+      margin-bottom:20px;
+      animation:fadeUp 1s ease;
+    }
+
+    .hero p{
+      font-size:20px;
+      max-width:700px;
+      line-height:1.7;
+      opacity:0.9;
+      animation:fadeUp 1.3s ease;
+    }
+
+    .hero button{
+      margin-top:35px;
+      padding:18px 40px;
+      border:none;
+      border-radius:50px;
+      background:#69ff8f;
+      color:#092012;
+      font-size:18px;
+      font-weight:700;
+      cursor:pointer;
+      transition:0.3s;
+      animation:fadeUp 1.6s ease;
+    }
+
+    .hero button:hover{
+      transform:translateY(-4px) scale(1.03);
+      box-shadow:0 10px 30px rgba(105,255,143,0.4);
+    }
+
+    /* Секции */
+    section{
+      padding:100px 10%;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:42px;
+      margin-bottom:20px;
+      color:#aaffbb;
+    }
+
+    .section-text{
+      text-align:center;
+      max-width:850px;
+      margin:0 auto 60px;
+      line-height:1.8;
+      color:#d4d4d4;
+    }
+
+    /* Карточки */
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:25px;
+      overflow:hidden;
+      transition:0.4s;
+      backdrop-filter:blur(10px);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 15px 35px rgba(0,0,0,0.4);
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:25px;
+    }
+
+    .card h3{
+      margin-bottom:15px;
+      color:#9fffba;
+      font-size:24px;
+    }
+
+    .card p{
+      color:#d9d9d9;
+      line-height:1.7;
+    }
+
+    /* Блок статистики */
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:25px;
+      margin-top:60px;
+    }
+
+    .stat{
+      background:linear-gradient(135deg,#1e3c2f,#274f3f);
+      padding:40px;
+      border-radius:25px;
+      text-align:center;
+    }
+
+    .stat h2{
+      font-size:48px;
+      color:#7fff9d;
+      margin-bottom:10px;
+    }
+
+    .stat p{
+      opacity:0.9;
+    }
+    /* Footer */
+    footer{
+      background:#08110c;
+      padding:50px 10%;
+      text-align:center;
+      color:#c6c6c6;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    footer h2{
+      color:#8cff9d;
+      margin-bottom:15px;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* Адаптив */
+    @media(max-width:768px){
+
+      nav{
+        padding:20px;
+        flex-direction:column;
+        gap:15px;
+      }
+
+      .hero h1{
+        font-size:44px;
+      }
+
+      .hero p{
+        font-size:17px;
+      }
+
+      .section-title{
+        font-size:32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Главная -->
+  <header class="hero">
+
+    <nav>
+      <div class="logo">EcoNature</div>
+
+      <ul>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#parks">Парки</a></li>
+        <li><a href="#help">Помощь</a></li>
+      </ul>
+    </nav>
+
+    <h1>Сохраним природу вместе</h1>
+
+    <p>
+      Леса, озёра, горы и животные нуждаются в защите.
+      Каждый человек способен изменить мир и сохранить
+      красоту природы для будущих поколений.
+    </p>
+
+    <button onclick="document.getElementById('about').scrollIntoView()">
+      Узнать больше
+    </button>
+
+  </header>
+
+  <!-- О нас -->
+  <section id="about">
+
+    <h2 class="section-title">Почему это важно?</h2>
+
+    <p class="section-text">
+      Ежегодно миллионы гектаров лесов исчезают, а редкие
+      виды животных оказываются под угрозой исчезновения.
+      Охрана природы помогает сохранить экологический баланс,
+      чистый воздух и красоту нашей планеты.
+    </p>
+
+    <div class="stats">
+
+      <div class="stat">
+        <h2>70%</h2>
+        <p>кислорода дают леса и растения</p>
+      </div>
+
+      <div class="stat">
+        <h2>1M+</h2>
+        <p>животных находятся под угрозой</p>
+      </div>
+
+      <div class="stat">
+        <h2>50+</h2>
+        <p>национальных парков защищают природу</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Парки -->
+  <section id="parks">
+
+    <h2 class="section-title">Красота природы</h2>
+
+    <p class="section-text">
+      Национальные парки и заповедники сохраняют уникальные
+      природные зоны, редких животных и удивительные ландшафты.
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="card-content">
+          <h3>Горные леса</h3>
+
+          <p>
+            Чистый воздух, густые леса и горные вершины —
+            символ дикой и нетронутой природы.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="card-content">
+          <h3>Озёра и реки</h3>
+
+          <p>
+            Вода — источник жизни. Чистые реки и озёра
+            важны для всей экосистемы планеты.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="card-content">
+          <h3>Заповедники</h3>
+
+          <p>
+            Особые территории, где природа сохраняется
+            в своём естественном и уникальном виде.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Помощь -->
+  <section id="help">
+
+    <h2 class="section-title">Как помочь природе?</h2>
+
+    <p class="section-text">
+      Даже небольшие действия могут изменить мир:
+      сортировка мусора, посадка деревьев,
+      экономия воды и забота о животных.
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-content">
+          <h3>♻ Переработка</h3>
+          <p>
+            Сортируйте пластик, стекло и бумагу,
+            чтобы уменьшить загрязнение окружающей среды.
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h3>🌱 Посадка деревьев</h3>
+          <p>
+            Одно дерево может очищать воздух и помогать
+            сохранять климатический баланс.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <h3>💧 Экономия воды</h3>
+          <p>
+            Бережное использование воды помогает
+            сохранить природные ресурсы планеты.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <h2>EcoNature</h2>
+
+    <p>
+      Природа — это наше будущее. Сохраним её вместе.
+    </p>
+  </footer>
+
+</body>
+</html>
